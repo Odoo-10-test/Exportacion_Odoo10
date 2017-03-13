@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_wizard_generate_file" model="ir.ui.view">
+            <field name="name">wizard_generate_file</field>
+            <field name="model">wizard.file.generate</field>
+            <field name="arch" type="xml">
+                <form string="Generador de file">
+                    <p class="oe_gray">
+                        Seleccione tabla a exportar
+                    </p>
+                    <p class="oe_gray">
+                        Por ahora solo exporta "actividades economicas"
+                    </p>
+                    <footer>
+                        <button name="generate_file" string="Generar" type="object" class="oe_highlight"/>
+                        or
+                        <button string="Cancelar" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_generate_file" model="ir.actions.act_window">
+            <field name="name">CSV</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">wizard.file.generate</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+    <menuitem name="Export" action="action_generate_file" id="menu_action_generate_file"
+        parent="l10n_cl_base.menu_sii_config" sequence="22"/>
+        
+
+    </data>
+</openerp>
